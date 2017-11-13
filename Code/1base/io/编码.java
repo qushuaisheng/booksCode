@@ -4,11 +4,14 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
-import java.io.UnsupportedEncodingException;
-
+import java.nio.ByteBuffer;
+import java.nio.CharBuffer;
+import java.nio.charset.Charset;
+//java web 第三章
 public class 编码 {
 	public static void main(String[] args) throws Exception{
-		test2();
+//		test21();
+		test22();
 	}
 	
 	// I/O 涉及的编码示例
@@ -40,8 +43,8 @@ public class 编码 {
 		}
 	}
 	
-	//内存中操作中的编码
-	private static void test2() throws Exception{
+	//内存中操作中的编码：方式一
+	private static void test21() throws Exception{
 		String s = "这是一段中文字符串"; 
 		
 		//String 类就提供转换到字节的方法
@@ -55,5 +58,17 @@ public class 编码 {
 		String s2 = new String(b2,"UTF-8");
 		System.out.println("b2-->"+b2);
 		System.out.println("s2-->"+s2);
+	}
+	
+	//内存中操作中的编码：方式二
+	//编码与解码都在一个类中完成，通过 forName 
+	//设置编解码字符集，这样更容易统一编码格式。
+	private static void test22(){
+		Charset charset = Charset.forName("UTF-8"); 
+		ByteBuffer byteBuffer = charset.encode("abc");
+		System.out.println(byteBuffer);
+		
+		CharBuffer charBuffer = charset.decode(byteBuffer);
+		System.out.println(charBuffer);
 	}
 }
