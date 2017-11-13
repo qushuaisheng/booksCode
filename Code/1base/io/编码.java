@@ -44,7 +44,9 @@ public class 编码 {
 	private static void test2() throws Exception{
 		String s = "这是一段中文字符串"; 
 		
+		//String 类就提供转换到字节的方法
 		byte[] b1 = s.getBytes("gbk");
+		//也支持将字节转换为字符串的构造函数
 		String s1 = new String(b1,"gbk");
 		System.out.println("b1-->"+b1);
 		System.out.println("s1-->"+s1);
