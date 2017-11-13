@@ -11,7 +11,8 @@ import java.nio.charset.Charset;
 public class 编码 {
 	public static void main(String[] args) throws Exception{
 //		test21();
-		test22();
+//		test22();
+		test3();
 	}
 	
 	// I/O 涉及的编码示例
@@ -70,5 +71,14 @@ public class 编码 {
 		
 		CharBuffer charBuffer = charset.decode(byteBuffer);
 		System.out.println(charBuffer);
+	}
+	
+	//Java 中还有一个 ByteBuffer 类，它提供一种 char 和 byte 之间的软转换，
+	//它们之间转换不需要编码与解码，只是把一个 16bit 的 char 格式，拆分成为 2 个 8bit 的 byte 表示，它们的实际值并没有被修改，仅仅是数据的类型做了转换。如下代码所以：
+	private static void test3(){
+		ByteBuffer heapByteBuffer = ByteBuffer.allocate(1024);
+		System.out.println(heapByteBuffer);
+		ByteBuffer byteBuffer = heapByteBuffer.putChar('c');
+		System.out.println(byteBuffer);
 	}
 }
