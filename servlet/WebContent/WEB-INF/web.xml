@@ -13,6 +13,6 @@
   <servlet-mapping>  
     <servlet-name>Demo1</servlet-name>  
     <!-- 访问的网址 -->  
-    <url-pattern>/servlet/Demo1</url-pattern>  
+    <url-pattern>/qss/Demo1</url-pattern>  
     </servlet-mapping>  
 </web-app>  
