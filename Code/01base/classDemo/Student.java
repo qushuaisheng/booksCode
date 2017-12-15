@@ -4,6 +4,10 @@ public class Student {
 	private String name;
 	private String age;
 	
+	static{
+		System.out.println("1234");
+	}
+	
 	public Student(){
 		this.name = "李白";
 	}
