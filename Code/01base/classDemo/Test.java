@@ -7,10 +7,11 @@ public class Test {
 		test2();//创建Student对象
 	}
 	
-	//Java 获取Class对象的三种方法
+	//Java（反射）获取Class对象的三种方法
 	@SuppressWarnings("unused")
 	private static void test1() throws Exception{
 		//1.根据对象的引用.getClass()方法获取
+		//需要创建对象，静态块和动态构造块均会执行
 		Student student = new Student();
 		Class<? extends Student> clazz1 = student.getClass();
 		System.out.println("1----->");
@@ -19,6 +20,7 @@ public class Test {
 		System.out.println("");
 		
 		//2.根据类名.class获取
+		//不执行静态块和动态构造块
 		Class<? extends Student> clazz2 = Student.class;
 		System.out.println("2----->");
 		System.out.println(clazz2.getName());
@@ -26,6 +28,7 @@ public class Test {
 		System.out.println("");
 		
 		//3.根据Class中的静态方法Class.forName(); 
+		//执行静态块、不执行动态构造块
 		Class<?> clazz3 = Class.forName("classDemo.Student");
 		System.out.println("3----->");
 		System.out.println(clazz3.getName());
