@@ -34,7 +34,6 @@ public class ReadFromFile {
     }
 
 	private static void showAvailableBytes(FileInputStream in) {
-		// QxyTodo Auto-generated method stub
 		
 	}
 	
